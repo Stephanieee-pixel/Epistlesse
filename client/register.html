@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Epistlesse Register</title>
+
+<link rel="stylesheet" type="text/css" href="/client/css/login.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="/client/js/config.js"></script>
+<script src='/client/js/account.js' async></script>
+</head>
+<body>
+
+  <div class = "container loginForm center">
+    <h1>Create Account</h1>
+    <div class="row">
+      <div class="form-group">
+        <label class='form_med' for="email_address">Email Address:</label>
+        <input type="email" id="email_address" name="email_address" class="form-control form_md form_input" placeholder="name@example.com" size='40'>
+    </div>
+      <div class="form-group">
+        <label class='form_med' for="password">Password:</label>
+        <input type="password" id="password" name="password" class="form-control form_md form_input" size='40'>
+      </div>
+      <div class="form-group">
+        <label class='form_med' for="password">Re-enter Password:</label>
+        <input type="password" id="password" name="password" class="form-control form_md form_input" size='40'>
+      </div>
+      <div id="passwordHelpBlock" class="form-text">
+        Your password must be 8-20 characters long, contain letters numbers, and at least one special character. Must not contain spaces or emoji.
+        </div>
+      <div id="save_button" class="btn-group-variant config-buttons">
+        <button id="data-submit" class="btn btn-sm edit_btn">Login</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

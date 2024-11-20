@@ -1,0 +1,90 @@
+body{
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: #F7EDF0;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+}
+
+.center{
+    width: 50%;
+    margin: auto;
+}
+
+
+
+@media screen and (max-width: 1365px) {
+    .page-content {
+        width: 100%;
+    }
+    
+    .form-control {
+        width: 100%;
+    }
+    
+    .form_med {
+        width: 100%;
+        text-align: left;
+    }
+
+    .form_md, .form_sm {
+        width: 100%;
+    }
+    
+    .container .config-buttons {
+        width: 100%;
+    }
+    
+    .form_input{
+        font-size: 12px;
+    }
+    
+    .edit_btn{
+        padding: 10px 8px;
+        font-size: 11px;        
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .page-content {
+        width: 100%;
+    }
+    
+    .container {
+        width: 100%;        
+    }
+    
+    .col-xs-11{
+        width: 100%;        
+    }
+    
+    .form-control {
+        width: 100%;
+    }
+    
+    .form_med {
+        width: 100%;
+        text-align: left;
+    }
+
+    .form_md, form_sm {
+        width: 100%;
+    }
+    
+    .container .config-buttons {
+        width: 100%;
+    }
+    
+    .form_input{
+        font-size: 12px;
+    }
+    
+    .edit_btn{
+        padding: 10px 8px;
+        font-size: 11px;        
+    }
+}

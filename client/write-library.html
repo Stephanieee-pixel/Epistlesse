@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang='en' class='wide wow-animation'>
+    <head>
+        <title> Populate Epistlesse Storefront </title>
+
+        <link rel="stylesheet" type="text/css" href="/client/css/write-catalog.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="/client/js/config.js"></script>
+        <script src='/client/js/write-library.js' async></script>
+        <!-- from node demo along with css -->
+    </head>
+
+    <body>
+        <header class="header">
+            <section class="relative text-center">
+              <div class="container">
+                <div class="text-center">
+                  <h1 class='title'><span class='text-bold'>Enter products into the catalog</span></h1>
+                </div>
+              </div>
+            </section>
+          </header>
+
+          <!-- Page Content-->
+          <div id="menu-items" class="menu-items"></div>
+          <div id="router_button" class="btn-group-variant config-buttons">
+            <a href="/client/homepage.html" id="write-router" class="btn btn-sm edit_btn">Browse Storefront</a>
+          </div>
+
+          <main class="page-content">
+            <section id="libraryConfig_section" class="section section-inset-1 ">
+                <div class="container libraryForm">
+                    <div class="row">
+                        <form id="config_form">
+                            <div class="form-group">
+                                <label class='form_med' for="name">Product Name:</label>
+                                <input type="text" id="name" name="name" class="form-control form_md form_input" size='60'>
+                            </div>
+                            <div class="form-group">
+                                <label class='form_med' for="desc">Description:</label>
+                                <input type="text" id="desc" name="desc" class="form-control form_md form_input" size='60'>
+                            </div>
+                            <div class="form-group">
+                                <label class='form_med' for="price">Price:</label>
+                                <input type="text" id="price" name="price" class="form-control form_md form_input" size='60'>
+                            </div>
+                            <div class="form-group">
+                                <label class='form_med' for="quantity">Avaialability:</label>
+                                <input type="text" id="quantity" name="quantity" class="form-control form_sm form_input" size='10'>
+                            </div>
+                           
+                            <div id="save_button" class="btn-group-variant config-buttons">
+                                <button id="data-submit" class="btn btn-sm edit_btn">Submit MySQL</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
