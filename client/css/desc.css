@@ -1,0 +1,11 @@
+body{
+    background-color: #F7EDF0;
+    overflow: auto;
+    background-repeat: no-repeat;
+}
+
+#name{
+    display: inline-block;
+    color: #fbc3bc;
+    font-family: "Shrikhand", cursive;
+  }

@@ -9,8 +9,16 @@ var router = function(app) {
         res.status(200).sendFile(path.join(__dirname + "/../client/write-library.html"));
     });
 
-    app.get('/browse-library', function(req, res) {
-        res.status(200).sendFile(path.join(__dirname + "/../client/browse-library.html"));
+    app.get('/register', function(req, res) {
+        res.status(200).sendFile(path.join(__dirname + "/../client/register.html"));
+    });
+
+    app.get('/homepage', function(req, res){
+        res.status(200).sendFile(path.join(__dirname + "/../client/homepage.html"))
+    });
+
+    app.get('/product-desc', function(req, res){
+        res.status(200).sendFile(path.join(__dirname + "/../client/product-desc.html"))
     });
 };
 

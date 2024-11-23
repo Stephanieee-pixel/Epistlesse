@@ -35,7 +35,41 @@ var services = function(app){
 
         });
     });
+
+    app.post('/write-account', function(req, res){
+       
+        var data = {
+            email_address: req.body.email_address,
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            password: req.body.password
+
+        };
+        console.log(JSON.stringify(data));
+        connection.query("INSERT INTO accounts SET ?", data, function(err){
+            if(err){
+                return res.status (201).send(JSON.stringify({msg: "Error" + err}));
+            } else{
+                return res.status (200).send(JSON.stringify({msg: "SUCCESS"}));
+
+            }
+
+        });
+    });
+
+    app.get('/get-account', function(req, res) {
+        connection.query("SELECT * FROM accounts", function(err, rows) {
+            if(err) {
+                throw err;
+            } else {
+              console.log("Look up account");
+              // connection.end();
+              return res.status(201).send(JSON.stringify({msg:"SUCCESS", accounts:rows}));
+            }
+        });    
+  });
 };
+
 
 module.exports = services;
 

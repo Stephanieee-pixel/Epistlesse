@@ -8,13 +8,14 @@
 <link rel="stylesheet" type="text/css" href="css/homepage.css">
 
 </head>
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+  <div data-spy="scroll" data-target="#navbar-example2" data-offset="0"></div>
 
     <nav class="nav">
         <a class="nav-link active" aria-current="page" href="#">Home</a>
         <a class="nav-link" href="#">New Arrivals</a>
         <a class="nav-link" href="#">Stationary Sets</a>
-        <a class="nav-link" href="#">Stationary</a>
+        <a class="nav-link" href="#notes">Stationary</a>
         <a class="nav-link" href="#">Reviews</a>
         <a class="nav-link" href="#">News</a>
 
@@ -49,7 +50,7 @@
 
       <!-- products are displayed -->
       <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
+        <div class="col" id="notes">
           <div class="card h-100">
             <img src="img/spcat-apple.jpeg" class="card-img-top" alt="...">
             <div class="card-body">
@@ -58,7 +59,7 @@
             </div>
           </div>
         </div>
-        <div class="col">
+        <div class="col" id="notes">
           <div class="card h-100">
             <img src="img/spcat-fish.jpeg" class="card-img-top" alt="...">
             <div class="card-body">
@@ -67,7 +68,7 @@
             </div>
           </div>
         </div>
-        <div class="col">
+        <div class="col" id="notes">
           <div class="card h-100">
             <img src="img/spcat-cheese.jpeg" class="card-img-top" alt="...">
             <div class="card-body">
@@ -80,7 +81,7 @@
         <!-- next section of products -->
       
         <div class="row row-cols-lg-3">
-            <div class="col-auto">
+            <div class="col-auto" id="sets">
               <div class="card h-100">
                 <img src="img/spbear-set.jpeg" class="card-img-top responsive-img" alt="...">
                 <div class="card-body card-body-set">
@@ -89,7 +90,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-auto">
+            <div class="col-auto" id="sets">
               <div class="card h-100">
                 <img src="img/spbutterfly-set.jpeg" class="card-img-top responsive-img" alt="...">
                 <div class="card-body card-body-set">
@@ -98,7 +99,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-auto">
+            <div class="col-auto" id="sets">
               <div class="card h-100">
                 <img src="img/spkitty-set.jpeg" class="card-img-top responsive-img" alt="...">
                 <div class="card-body card-body-set">

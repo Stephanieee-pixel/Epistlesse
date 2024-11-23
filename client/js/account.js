@@ -13,7 +13,7 @@ $('#data-submit').click(function() {
     };
     
      $.ajax({
-         url: libraryURL + "/register",
+         url: libraryURL + "/write-account",
          type:"post",
          data: jsonString,
          success: function(response){
@@ -35,3 +35,24 @@ $('#data-submit').click(function() {
     
 
 //Create a listener that waits for user to enter submit button to log in
+retrieveAccount();
+
+function retrieveAccount(){
+    $.ajax({
+        url: libraryURL + "/get-account",
+        type:"get",
+        success: function(response){
+        console.log(response);
+        var data = JSON.parse(response);
+        loadPage();
+        },
+        error: function(err){
+        alert(err);
+        }
+    });
+}
+
+function loadPage(){
+    location.location.href("/client/homepage.html")
+
+}
