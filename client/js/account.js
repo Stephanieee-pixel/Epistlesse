@@ -53,6 +53,5 @@ function retrieveAccount(){
 }
 
 function loadPage(){
-    location.location.href("/client/homepage.html")
-
+    location.location.href("/client/homepage.html");
 }
