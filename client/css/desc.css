@@ -8,4 +8,10 @@ body{
     display: inline-block;
     color: #fbc3bc;
     font-family: "Shrikhand", cursive;
+    text-align: center;
   }
+
+.responsive-img{
+    width: 450px;
+    height: auto;
+}

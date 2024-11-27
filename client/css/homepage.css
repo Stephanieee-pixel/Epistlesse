@@ -17,4 +17,11 @@ html{
     height:auto;
 }
 
+#name{
+    display: inline-block;
+    color: #fbc3bc;
+    font-family: "Shrikhand", cursive;
+    text-align: center;
+}
+
 
