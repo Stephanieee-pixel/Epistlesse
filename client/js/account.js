@@ -35,23 +35,54 @@ $('#data-submit').click(function() {
     
 
 //Create a listener that waits for user to enter submit button to log in
-retrieveAccount();
+$('#login').click(function() {
+    var email_address = $('email_address').val();
+    var password = $('password').val();
 
-function retrieveAccount(){
+    var jsonString = {
+        email_address: email_address, 
+        password: password
+      
+    };
+
     $.ajax({
         url: libraryURL + "/get-account",
-        type:"get",
-        success: function(response){
-        console.log(response);
-        var data = JSON.parse(response);
-        loadPage();
-        },
-        error: function(err){
-        alert(err);
+        type: "post",
+        data: jsonString,
+        success:function(response){
+            console.log(response);
+            var data = JSON.parse(response);
+            if(reponse.success){
+                window.location.href = "http://localhost:4000/client/homepage.html";
+            }
+            else{
+                console.log('incorrect username or password!');
+            }
         }
+        
     });
-}
 
-function loadPage(){
-    location.location.href("/client/homepage.html");
-}
+    
+
+});
+
+//retrieveAccount();
+
+// function retrieveAccount(){
+//     $.ajax({
+//         url: libraryURL + "/get-account",
+//         type:"get",
+//         success: function(response){
+//         console.log(response);
+//         var data = JSON.parse(response);
+//         loadPage();
+//         },
+//         error: function(err){
+//         alert(err);
+//         }
+//     });
+// }
+
+// function loadPage(){
+//     location.location.href("/client/homepage.html");
+// }
