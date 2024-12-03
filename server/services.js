@@ -57,7 +57,7 @@ var services = function(app){
         });
     });
 
-    app.post('/get-account', function(req, res) {
+    app.get('/get-account', function(req, res) {
         const { email_address, password} = req.body;
 
         if(email_address === 'email_address' && password === 'password' ){
@@ -65,7 +65,6 @@ var services = function(app){
         } else{
             res.json({success: false, message: 'Incorrect username or password'});
         }
-
         connection.query("SELECT * FROM accounts", function(err, rows) {
             if(err) {
                 throw err;

@@ -20,6 +20,10 @@ var router = function(app) {
     app.get('/product-desc', function(req, res){
         res.status(200).sendFile(path.join(__dirname + "/../client/product-desc.html"))
     });
+
+    app.get('/cart', function(req, res){
+        res.status(200).sendFile(path.join(__dirname + "/../client/cart.html"))
+    });
 };
 
 module.exports = router;

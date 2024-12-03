@@ -1,0 +1,21 @@
+body{
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: #F7EDF0;
+}
+
+.nav{
+    text-align: center;
+}
+
+#name{
+    display: inline-block;
+    color: #fbc3bc;
+    font-family: "Shrikhand", cursive;
+    text-align: center;
+}
+
+.responsive-img{
+    width: 190px;
+    height: auto;
+}

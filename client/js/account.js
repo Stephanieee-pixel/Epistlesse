@@ -36,8 +36,8 @@ $('#data-submit').click(function() {
 
 //Create a listener that waits for user to enter submit button to log in
 $('#login').click(function() {
-    var email_address = $('email_address').val();
-    var password = $('password').val();
+    var email_address = $('#email_address').val();
+    var password = $('#password').val();
 
     var jsonString = {
         email_address: email_address, 
@@ -47,13 +47,13 @@ $('#login').click(function() {
 
     $.ajax({
         url: libraryURL + "/get-account",
-        type: "post",
+        type: "get",
         data: jsonString,
         success:function(response){
             console.log(response);
             var data = JSON.parse(response);
             if(reponse.success){
-                window.location.href = "http://localhost:4000/client/homepage.html";
+                window.location.replace = "http://localhost:4000/client/homepage.html";
             }
             else{
                 console.log('incorrect username or password!');
@@ -62,11 +62,13 @@ $('#login').click(function() {
         
     });
 
+    return false;
+
     
 
 });
 
-//retrieveAccount();
+// retrieveAccount();
 
 // function retrieveAccount(){
 //     $.ajax({
