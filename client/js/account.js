@@ -53,7 +53,7 @@ $('#login').click(function() {
             console.log(response);
             var data = JSON.parse(response);
             if(reponse.success){
-                window.location.replace = "http://localhost:4000/client/homepage.html";
+                window.location.assign = "http://localhost:4000/homepage";
             }
             else{
                 console.log('incorrect username or password!');

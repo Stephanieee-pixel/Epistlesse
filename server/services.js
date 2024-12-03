@@ -58,13 +58,18 @@ var services = function(app){
     });
 
     app.get('/get-account', function(req, res) {
-        const { email_address, password} = req.body;
-
-        if(email_address === 'email_address' && password === 'password' ){
-            res.json({success: true});
-        } else{
-            res.json({success: false, message: 'Incorrect username or password'});
+        var data = {
+            email_address: req.body.email_address,
+            password: req.body.password
         }
+        console.log(JSON.stringify(data));
+        // const { email_address, password} = req.body;
+
+        // if(email_address === 'email_address' && password === 'password' ){
+        //     res.json({success: true});
+        // } else{
+        //     res.json({success: false, message: 'Incorrect username or password'});
+        // }
         connection.query("SELECT * FROM accounts", function(err, rows) {
             if(err) {
                 throw err;
