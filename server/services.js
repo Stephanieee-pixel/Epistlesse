@@ -58,11 +58,11 @@ var services = function(app){
     });
 
     app.get('/get-account', function(req, res) {
-        var data = {
-            email_address: req.body.email_address,
-            password: req.body.password
-        }
-        console.log(JSON.stringify(data));
+        // var data = {
+        //     email_address: req.body.email_address,
+        //     password: req.body.password
+        // }
+        // console.log(JSON.stringify(data));
         // const { email_address, password} = req.body;
 
         // if(email_address === 'email_address' && password === 'password' ){
@@ -70,7 +70,7 @@ var services = function(app){
         // } else{
         //     res.json({success: false, message: 'Incorrect username or password'});
         // }
-        connection.query("SELECT * FROM accounts", function(err, rows) {
+        connection.query("SELECT email_address, password FROM accounts", function(err, rows) {
             if(err) {
                 throw err;
             } else {
@@ -80,6 +80,18 @@ var services = function(app){
             }
         });    
   });
+
+    app.get('/get-product', function(req, res){
+        connection.query("SELECT * FROM products", function(err,rows){
+            if(err){
+                throw err;
+            }else{
+                console.log("Displayed product")
+                return res.status(201).send(JSON.stringify({msg:"SUCCESS", products:rows}));
+
+            }
+        })
+    });
 
 
 };
