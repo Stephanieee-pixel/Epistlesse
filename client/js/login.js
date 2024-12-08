@@ -1,17 +1,28 @@
 
 //Create a listener that waits for user to enter submit button to log in
 $('#login').click(function() {
+    var email_address = $('#email_address').val();
+    var password = $('#password').val();
+
+    var jsonString = {
+        email_address: email_address,
+        password: password
+    }
+
     $.ajax({
         url: libraryURL + "/get-account",
         type: "get",
+        data: jsonString,
         success:function(response){
             console.log(response);
             var data = JSON.parse(response);
-            if(response.success){
-                window.location.assign = "http://localhost:4000/homepage";
+            if(data.msg == "SUCCESS"){
+                window.localStorage.setItem('userId', data.accounts[0].idAccounts);
+                window.localStorage.setItem('userType', data.accounts[0].type);
+                window.location.href = "http://localhost:4000/homepage";
             }
             else{
-                console.log('incorrect username or password!');
+                console.log(data.msg);
             }
         }
         

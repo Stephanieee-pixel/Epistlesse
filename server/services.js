@@ -59,8 +59,11 @@ var services = function(app){
 
     app.get('/get-account', function(req, res) {
         // var data = {
-        //     email_address: req.body.email_address,
-        //     password: req.body.password
+           var  email_address = req.query.email_address;
+           var  password = req.query.password;
+
+           console.log(email_address);
+           console.log(password);
         // }
         // console.log(JSON.stringify(data));
         // const { email_address, password} = req.body;
@@ -70,9 +73,9 @@ var services = function(app){
         // } else{
         //     res.json({success: false, message: 'Incorrect username or password'});
         // }
-        connection.query("SELECT email_address, password FROM accounts", function(err, rows) {
+        connection.query("SELECT idAccounts, type FROM accounts WHERE email_address = ? AND password = ?", [email_address, password], function(err, rows) {
             if(err) {
-                throw err;
+                return res.status(201).send(JSON.stringify({msg:"Error: " + err}));
             } else {
               console.log("Look up account");
               // connection.end();
@@ -84,10 +87,39 @@ var services = function(app){
     app.get('/get-product', function(req, res){
         connection.query("SELECT * FROM products", function(err,rows){
             if(err){
-                throw err;
+                return res.status(201).send(JSON.stringify({msg:"Error: " + err}));
             }else{
                 console.log("Displayed product")
                 return res.status(201).send(JSON.stringify({msg:"SUCCESS", products:rows}));
+
+            }
+        })
+    });
+
+    app.get('/get-cart', function(req, res){
+        var  userId = req.query.userId;
+
+        connection.query("SELECT idOrders FROM orders WHERE Accounts_idAccounts = ? ", [userId], function(err,rows){
+            if(err){
+                return res.status(201).send(JSON.stringify({msg:"Error: " + err}));
+            }else{
+                console.log("Displayed product")
+                return res.status(201).send(JSON.stringify({msg:"SUCCESS", orders:rows}));
+
+            }
+        })
+    });
+
+
+    app.post('/createCart', function(req, res){
+        var  userId = req.body.userId;
+        console.log(userId);
+        connection.query("INSERT INTO orders (Accounts_idAccounts) VALUES (?)", [userId], function(err,result){
+            if(err){
+                return res.status(201).send(JSON.stringify({msg:"Error: " + err}));
+            }else{
+                console.log("Displayed product")
+                return res.status(201).send(JSON.stringify({msg:"SUCCESS", orderId:result.insertId}));
 
             }
         })
