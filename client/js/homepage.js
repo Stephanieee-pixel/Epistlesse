@@ -43,3 +43,7 @@ function createCart() {
         
     });
 }
+
+function addToCart(){
+    
+}

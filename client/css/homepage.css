@@ -13,10 +13,20 @@ html{
 }
 
 .responsive-img{
-    width:500px;
+    width:433px;
     height:auto;
 }
 
+.cart-btn{
+    background-color: #ffa5a5;
+    color:beige;
+    transition: background-color 0.3s;
+    
+}
+
+.cart-btn:hover{
+    background-color: #FFD6C0;
+}
 #name{
     display: inline-block;
     color: #fbc3bc;
