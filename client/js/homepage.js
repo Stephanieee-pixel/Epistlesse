@@ -44,6 +44,62 @@ function createCart() {
     });
 }
 
-function addToCart(){
+// to view the selected product from homepage 
+
+$('#selectItem').click(function() {
+
+    var selectedProduct = window.localStorage
+
+    $.ajax({
+        url: libraryURL + "/get-product",
+        type: "get",
+        data: {selectedProduct: selectedProduct},
+        success:function(response){
+            console.log(response);
+            var data = JSON.parse(response);
+            var productName = document.getElementsByClassName('card-title');
+            console.log(productName);
+            createDesc(data.products);
     
+            
+        }
+        
+    });
+});
+
+function createDesc(productData){
+    console.log(productData);
+    var productDesc = "";
+    for(var i = 0; i < productData.length; i++){
+        productDesc += "<div>";
+        productDesc += "<h1>" + productData[i].name + "</h1>";
+        productDesc += "<p>" + productData[i].price + "</p>";
+        productDesc += "<p>" + productData[i].quantity + "</p>";
+        productDesc += "<p>" + productData[i].desc + "</p>";
+        productDesc += "</div>";
+
+    }
+
+    $("#productDisplay").html(productDesc);
+
+
+}
+
+
+
+$.ajax({
+    url: libraryURL + "/addtoCart",
+    type: "get",
+    data: {userId: userId},
+    success:function(response){
+        console.log(response);
+        var data = JSON.parse(response);
+        addToCart()
+    }
+    
+});
+
+
+function addToCart(){
+
 }

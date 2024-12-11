@@ -85,7 +85,9 @@ var services = function(app){
   });
 
     app.get('/get-product', function(req, res){
-        connection.query("SELECT * FROM products", function(err,rows){
+        var  productName = req.query.productName;
+
+        connection.query("SELECT * FROM products WHERE name = ?", [productName], function(err,rows){
             if(err){
                 return res.status(201).send(JSON.stringify({msg:"Error: " + err}));
             }else{
@@ -103,7 +105,7 @@ var services = function(app){
             if(err){
                 return res.status(201).send(JSON.stringify({msg:"Error: " + err}));
             }else{
-                console.log("Displayed product")
+                console.log("Got cart")
                 return res.status(201).send(JSON.stringify({msg:"SUCCESS", orders:rows}));
 
             }
@@ -120,6 +122,20 @@ var services = function(app){
             }else{
                 console.log("Displayed product")
                 return res.status(201).send(JSON.stringify({msg:"SUCCESS", orderId:result.insertId}));
+
+            }
+        })
+    });
+
+    app.post('/addToCart', function(req, res){
+        var  userId = req.body.userId;
+        console.log(userId);
+        connection.query("INSERT INTO order_items(item_price, Products_idProducts, quantity) VALUES (?)", [name, price], function(err, result){
+            if(err){
+                return res.status(201).send(JSON.stringify({msg:"Error: " + err}));
+            }else{
+                console.log("Added to cart");
+                return res.status(201).send(JSON.stringify({msg:"SUCCESS", cart:result.cartItems}));
 
             }
         })

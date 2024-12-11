@@ -3,12 +3,12 @@ retrieveProducts()
 function retrieveData() {
     //Retrieve the library data and populate on page load
     $.ajax({
-        url: libraryURL + "/get-products",
+        url: libraryURL + "/get-cart",
         type:"get",
         success: function(response){
         console.log(response);
         var data = JSON.parse(response);
-        createLibraryTable(data.products);
+        displayProductData(data.order_items);
         },
         error: function(err){
         alert(err);
@@ -16,7 +16,18 @@ function retrieveData() {
     });
 }
 
-function displayProductData(productData){
+function displayCartData(productData){
     console.log(productData);
+    
+    var tableHTML = "";
+    for(var i=0; i<productData.length; i++) {
+        tableHTML += "<tr>";
+        tableHTML += "<td>" + productData[i].name + "</td>";
+        tableHTML += "<td>" + libraryData[i].price + "</td>";
+        tableHTML += "</tr>";
+    }
+
+    $("#cartTable").html(tableHTML);
+
     
 }
