@@ -129,6 +129,15 @@ var services = function(app){
 
     app.post('/addToCart', function(req, res){
         var  userId = req.body.userId;
+
+        var data = {
+            price: req.body.price,
+            idProducts: req.body.idProducts,
+            productName: req.body.name, 
+            quantity: req.body.quantity
+        }
+
+
         console.log(userId);
         connection.query("INSERT INTO order_items(item_price, Products_idProducts, quantity) VALUES (?)", [name, price], function(err, result){
             if(err){

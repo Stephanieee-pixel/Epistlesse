@@ -16,14 +16,14 @@ function retrieveData() {
     });
 }
 
-function displayCartData(productData){
-    console.log(productData);
+function displayCartData(cartData){
+    console.log(cartData);
     
     var tableHTML = "";
-    for(var i=0; i<productData.length; i++) {
+    for(var i=0; i<cartData.length; i++) {
         tableHTML += "<tr>";
-        tableHTML += "<td>" + productData[i].name + "</td>";
-        tableHTML += "<td>" + libraryData[i].price + "</td>";
+        tableHTML += "<td>" + cartData[i].name + "</td>";
+        tableHTML += "<td>" + cartData[i].price + "</td>";
         tableHTML += "</tr>";
     }
 
