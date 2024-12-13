@@ -98,7 +98,7 @@ var services = function(app){
         })
     });
 
-    app.get('/get-cart', function(req, res){
+    app.get('/get-orderId', function(req, res){
         var  userId = req.query.userId;
 
         connection.query("SELECT idOrders FROM orders WHERE Accounts_idAccounts = ? ", [userId], function(err,rows){
@@ -128,27 +128,40 @@ var services = function(app){
     });
 
     app.post('/addToCart', function(req, res){
-        var  userId = req.body.userId;
 
-        var data = {
-            price: req.body.price,
-            idProducts: req.body.idProducts,
-            productName: req.body.name, 
-            quantity: req.body.quantity
-        }
+          var item_price = req.body.item_price;
+          var Products_idProducts = req.body.productId;
+          var Orders_idOrders= req.body.orderId;
+          var quantity = 1;
+        
 
 
-        console.log(userId);
-        connection.query("INSERT INTO order_items(item_price, Products_idProducts, quantity) VALUES (?)", [name, price], function(err, result){
+        console.log(req.body.orderId);
+        connection.query("INSERT INTO order_items(item_price, Products_idProducts, Orders_idOrders, quantity) VALUES (?,?,?,?)", [item_price, Products_idProducts, Orders_idOrders, quantity ], function(err, result){
             if(err){
                 return res.status(201).send(JSON.stringify({msg:"Error: " + err}));
             }else{
                 console.log("Added to cart");
-                return res.status(201).send(JSON.stringify({msg:"SUCCESS", cart:result.cartItems}));
+                return res.status(201).send(JSON.stringify({msg:"SUCCESS"}));
 
             }
         })
     });
+
+    app.get('/get-cart', function(req, res){
+        var  orderId = req.query.orderId;
+
+        connection.query("SELECT item_price, oi.quantity, idOrder_items, name FROM order_items oi JOIN products p ON p.idProducts = oi.Products_idProducts WHERE Orders_idOrders = ?", [orderId], function(err,rows){
+            if(err){
+                return res.status(201).send(JSON.stringify({msg:"Error: " + err}));
+            }else{
+                console.log("Got cart " + JSON.stringify(rows));
+                return res.status(201).send(JSON.stringify({msg:"SUCCESS", orders:rows}));
+
+            }
+        })
+    });
+
 
 
 };

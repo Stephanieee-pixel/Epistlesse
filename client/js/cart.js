@@ -1,17 +1,28 @@
+
+var orderId = window.localStorage.getItem('orderId');
+var cart = [];
 retrieveProducts()
 
-function retrieveData() {
+function retrieveProducts() {
     //Retrieve the library data and populate on page load
     $.ajax({
         url: libraryURL + "/get-cart",
         type:"get",
+        data: {orderId: orderId},
         success: function(response){
-        console.log(response);
-        var data = JSON.parse(response);
-        displayProductData(data.order_items);
+            console.log(response);
+            var data = JSON.parse(response);
+            if(data.msg == "SUCCESS"){
+                displayProductData(data.orders);
+                cart = data.orders;
+            }
+            else{
+                console.log(data.msg);
+            }
+
         },
         error: function(err){
-        alert(err);
+            alert(err);
         }
     });
 }

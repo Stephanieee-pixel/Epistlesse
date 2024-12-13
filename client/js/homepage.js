@@ -1,7 +1,7 @@
 var userId = window.localStorage.getItem('userId');
 
 $.ajax({
-    url: libraryURL + "/get-cart",
+    url: libraryURL + "/get-orderId",
     type: "get",
     data: {userId: userId},
     success:function(response){
@@ -87,19 +87,20 @@ function createDesc(productData){
 
 
 
-$.ajax({
-    url: libraryURL + "/addtoCart",
-    type: "get",
-    data: {userId: userId},
-    success:function(response){
-        console.log(response);
-        var data = JSON.parse(response);
-        addToCart()
-    }
+
+function addToCart(productId, item_price){
+    var orderId = window.localStorage.getItem('orderId');
+
+    $.ajax({
+        url: libraryURL + "/addtoCart",
+        type: "post",
+        data: {orderId: orderId, productId: productId, item_price: item_price},
+        success:function(response){
+            console.log(response);
+            var data = JSON.parse(response);
+            
+        }
+        
+    });
     
-});
-
-
-function addToCart(){
-
 }
