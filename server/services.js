@@ -19,7 +19,7 @@ var services = function(app){
        
         var data = {
             name: req.body.name,
-            desc: req.body.desc,
+            proDesc: req.body.proDesc,
             price: req.body.price,
             quantity: req.body.quantity
 

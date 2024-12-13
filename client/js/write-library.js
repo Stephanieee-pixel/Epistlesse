@@ -2,13 +2,13 @@
     //Submit product details
     $('#data-submit').click(function() {
         var name = $('#name').val();
-        var desc = $('#desc').val();
+        var proDesc = $('#desc').val();
         var price = $('#price').val();
         var quantity = $('#quantity').val();
     
         var jsonString = {
             name: name, 
-            desc: desc,
+            proDesc: proDesc,
             price: price,
             quantity: quantity
         };
