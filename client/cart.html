@@ -39,63 +39,8 @@
 
     <br>
     <br>
-    <section id = "cart">
-    <div>
-        <h2>Your cart</h2>
-    </div>
-
-    <br>
-    <br>
-
-    <div class="row justify-content-center">
-      <div class="col-12 col-lg-3 text-center">
-        <div class="row">
-            <div class="col-5">
-              <img class="responsive-img" src="/client/img/rilakkuma-bluepen.jpeg" alt="">
-            </div>
-        </div>
-      </div>
-      <div class="col-7 order-1 order-lg-2">
-        <h6> Pilot Erasable Ball Point Pen 0.5mm - Rilakkuma Blue</h6>
-        <input type="text">
-      </div>
-    </div>
-
-    <br>
-
-    <div class="row justify-content-center">
-        <div class="col-12 col-lg-3 text-center">
-          <div class="row">
-              <div class="col-5">
-                <img class="responsive-img" src="/client/img/spbear-set.jpeg" alt="">
-              </div>
-              
-          </div>
-        </div>
-        <div class="col-7 order-1 order-lg-2">
-          <h6> SP Bear Stationary Set </h6>
-        </div>
-      </div>
-
-      <br>
-  
-      <div class="row justify-content-center">
-        <div class="col-12 col-lg-3 text-center">
-          <div class="row">
-              <div class="col-5">
-                <img class="responsive-img" src="/client/img/spcat-apple.jpeg" alt="">
-              </div>
-              
-          </div>
-        </div>
-        <div class="col-7 order-1 order-lg-2">
-          <h6> SP Cat's Apple Box - Sticky Notes </h6>
-        </div>
-      </div>
-    </section>
-
+    
     <section id="cartTwo">
-      <main class="page-content">
         <div class="col-12 col-lg-3">
             <table id="displayCart" class="tablesorter">
                 <colgroup>
@@ -112,14 +57,14 @@
                 <tbody id='cartTable'>
                 </tbody>
             </table>
+            <button id="checkout-btn">Purchase</button>
         </div>
-    </main>
     </section>
 
     <br>
     <br>
 
-    <section id="checkout" hidden>
+    <section id="checkout-section">
       <div class="row">
         <div class="col-75">
           <div class="container">
@@ -128,52 +73,55 @@
         </div>
       </div>
       <form action="">
-      <div class="row">
-        <div class="col-5">
-          <h4>Billing Address</h4>
-          <label for="firstName">First Name</label>
-          <input type="text" id="firstName" name="firstname" placeholder="Evelyn">
-          <label for="email">Email</label>
-          <input type="text" id="email" name="email" placeholder="e377@gmail.com">
-          <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-
-        </div>
-      </div>
-      
-      <div class="col-50">
-        <h3>Payment</h3>
-        <label for="fname">Accepted Cards</label>
-        <div class="icon-container">
-          <i class="fa fa-cc-visa" style="color:navy;"></i>
-          <i class="fa fa-cc-amex" style="color:blue;"></i>
-          <i class="fa fa-cc-mastercard" style="color:red;"></i>
-          <i class="fa fa-cc-discover" style="color:orange;"></i>
-        </div>
-
-        <label for="cname">Name on Card</label>
-        <input type="text" id="cname" name="cardname" placeholder="John More Doe">
-        <label for="ccnum">Credit card number</label>
-        <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-        <label for="expmonth">Exp Month</label>
-        <input type="text" id="expmonth" name="expmonth" placeholder="September">
         <div class="row">
-          <div class="col-50">
-            <label for="expyear">Exp Year</label>
-            <input type="text" id="expyear" name="expyear" placeholder="2018">
-          </div>
-          <div class="col-50">
-            <label for="cvv">CVV</label>
-            <input type="text" id="cvv" name="cvv" placeholder="352">
+          <div class="col-5">
+            <h4>Billing Address</h4>
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" name="firstname" placeholder="Evelyn">
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="e377@gmail.com">
+            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+
           </div>
         </div>
-      </div>
       
-    </div>
-    <label>
-      <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
-    </label>
-    <input type="submit" value="Continue to checkout" class="btn">
-  </form>
+        <div class="col-50">
+          <h3>Payment</h3>
+          <label for="fname">Accepted Cards</label>
+          <div class="icon-container">
+            <i class="fa fa-cc-visa" style="color:navy;"></i>
+            <i class="fa fa-cc-amex" style="color:blue;"></i>
+            <i class="fa fa-cc-mastercard" style="color:red;"></i>
+            <i class="fa fa-cc-discover" style="color:orange;"></i>
+          </div>
+
+          <label for="cname">Name on Card</label>
+          <input type="text" id="cname" name="cardname" placeholder="John More Doe">
+          <label for="ccnum">Credit card number</label>
+          <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+          <label for="expmonth">Exp Month</label>
+          <input type="text" id="expmonth" name="expmonth" placeholder="September">
+        
+          <div class="row">
+            <div class="col-50">
+              <label for="expyear">Exp Year</label>
+              <input type="text" id="expyear" name="expyear" placeholder="2018">
+            </div>
+            <div class="col-50">
+              <label for="cvv">CVV</label>
+              <input type="text" id="cvv" name="cvv" placeholder="352">
+            </div>
+            </div>
+          </div>
+      
+    
+          <label>
+            <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+          </label>
+          <input type="submit" value="Continue to checkout" class="btn">
+          <button id="purchase-btn">Purchase</button>
+        </div>
+      </form>
     </section>
   
   </body>

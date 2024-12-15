@@ -101,7 +101,7 @@ var services = function(app){
     app.get('/get-orderId', function(req, res){
         var  userId = req.query.userId;
 
-        connection.query("SELECT idOrders FROM orders WHERE Accounts_idAccounts = ? ", [userId], function(err,rows){
+        connection.query("SELECT idOrders FROM orders WHERE Accounts_idAccounts = ? AND orderStatus = 0 ", [userId], function(err,rows){
             if(err){
                 return res.status(201).send(JSON.stringify({msg:"Error: " + err}));
             }else{
@@ -157,6 +157,21 @@ var services = function(app){
             }else{
                 console.log("Got cart " + JSON.stringify(rows));
                 return res.status(201).send(JSON.stringify({msg:"SUCCESS", orders:rows}));
+
+            }
+        })
+    });
+
+    app.put('/update-cart', function(req, res){
+        var idOrder_items = req.body.idOrder_items;
+        var quantity = req.body.quantity;
+
+        connection.query("UPDATE order_items SET quantity = ? WHERE idOrder_items = ?", [quantity, idOrder_items], function(err,rows){
+            if(err){
+                return res.status(201).send(JSON.stringify({msg:"Error: " + err}));
+            }else{
+                console.log("Updated cart " + JSON.stringify(rows));
+                return res.status(201).send(JSON.stringify({msg:"SUCCESS"}));
 
             }
         })
