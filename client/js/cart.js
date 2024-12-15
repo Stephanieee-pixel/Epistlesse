@@ -13,7 +13,7 @@ function retrieveProducts() {
             console.log(response);
             var data = JSON.parse(response);
             if(data.msg == "SUCCESS"){
-                displayProductData(data.orders);
+                displayCartData(data.orders);
                 cart = data.orders;
             }
             else{
@@ -27,14 +27,16 @@ function retrieveProducts() {
     });
 }
 
-function displayCartData(cartData){
-    console.log(cartData);
+function displayCartData(cart){
+    console.log(cart);
     
     var tableHTML = "";
-    for(var i=0; i<cartData.length; i++) {
+    for(var i=0; i<cart.length; i++) {
         tableHTML += "<tr>";
-        tableHTML += "<td>" + cartData[i].name + "</td>";
-        tableHTML += "<td>" + cartData[i].price + "</td>";
+        tableHTML += "<td>" + cart[i].name + "</td>";
+        tableHTML += "<td>" + cart[i].item_price + "</td>";
+        tableHTML += "<td><input class = 'quantity' onchange = updateQuantity('" + cart[i].idOrder_items + "') value = '" + cart[i].quantity + "' ></td>";
+
         tableHTML += "</tr>";
     }
 
@@ -42,3 +44,12 @@ function displayCartData(cartData){
 
     
 }
+
+function updateQuantity(){
+
+}
+
+function calculateCartTotal(){
+    
+}
+
