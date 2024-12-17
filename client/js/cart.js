@@ -83,5 +83,29 @@ $('#checkout-btn').click(function(){
     $('#checkout-section').toggle();
     $('#cartTwo').hide();
 
-})
+});
+
+$('#purchase-btn').click(function(){
+    $.ajax({
+        url: libraryURL + "/purchase",
+        type:"put",
+        data: {orderId: orderId},
+        success: function(response){
+            console.log(response);
+            var data = JSON.parse(response);
+            if(data.msg == "SUCCESS"){
+                alert("Thank you for your purchase!!")
+                window.location.href = "http://localhost:4000/homepage";
+
+            }
+            else{
+                console.log(data.msg);
+            }
+
+        },
+        error: function(err){
+            alert(err);
+        }
+    });
+});
 

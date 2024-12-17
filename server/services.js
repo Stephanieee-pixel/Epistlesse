@@ -177,6 +177,20 @@ var services = function(app){
         })
     });
 
+    app.put('/purchase', function(req, res){
+        var orderId = req.body.orderId;
+
+        connection.query("UPDATE orders SET orderStatus = 1 WHERE idOrders = ?;", [orderId], function(err,rows){
+            if(err){
+                return res.status(201).send(JSON.stringify({msg:"Error: " + err}));
+            }else{
+                console.log("Purchase complete! " + JSON.stringify(rows));
+                return res.status(201).send(JSON.stringify({msg:"SUCCESS"}));
+
+            }
+        })
+    });
+
 
 
 };
