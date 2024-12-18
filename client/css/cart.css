@@ -2,10 +2,15 @@ body{
     background-repeat: no-repeat;
     background-size: 100%;
     background-color: #F7EDF0;
+    padding: 15px;
+
 }
 
 table{
     width: 100%;
+    border-collapse: collapse;
+    border: 1px solid;
+
 }
 
 tr{
@@ -16,6 +21,7 @@ tr{
     padding-bottom: 10px;
     margin-top: 10px;
 }
+
 
 .nav{
     text-align: center;
@@ -39,6 +45,10 @@ tr{
     text-align: center;
 }
 
+#checkout-btn{
+    align-items: center;
+}
+
 .responsive-img{
     width: 190px;
     height: auto;
@@ -51,9 +61,11 @@ tr{
 }
 
 th, td {
+    padding: 10px;
     text-align:center;
     font-size: 20px;
     margin: auto;
+    border-bottom: 1px solid #ddd;
 }
 
 .table-responsive > .table > thead > tr > th,
