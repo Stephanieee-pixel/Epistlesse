@@ -4,6 +4,11 @@ body{
     background-color: #F7EDF0;
 }
 
+h1{
+    display: inline-block;
+    font-family: "Limelight", serif;
+}
+
 .container{
     display: flex;
     align-items: center;
@@ -88,3 +93,10 @@ body{
         font-size: 11px;        
     }
 }
+
+.limelight-regular {
+    font-family: "Limelight", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  

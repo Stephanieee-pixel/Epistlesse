@@ -4,8 +4,32 @@ body{
     background-color: #F7EDF0;
 }
 
+table{
+    width: 100%;
+}
+
+tr{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+    margin-right: 1.5em;
+    padding-bottom: 10px;
+    margin-top: 10px;
+}
+
 .nav{
     text-align: center;
+    background-color:  aliceblue;
+
+}
+
+
+.nav-link{
+    color: #F59A8E;
+}
+
+.nav-link:hover{
+    color: black;
 }
 
 #name{
